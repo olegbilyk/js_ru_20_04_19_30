@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CommentList from './CommentList'
+import CommentBuild from './CommentBuild'
 
 export default class Article extends Component {
   state = {
@@ -8,6 +8,7 @@ export default class Article extends Component {
 
   render () {
     const {article} = this.props
+
     return (
       <section>
         <h2 onClick={this.toggleOpen}>
@@ -18,15 +19,9 @@ export default class Article extends Component {
     )
   }
 
-  getBody () {
-    return this.state.isOpen && <div>{this.props.article.text}{this.getComment()}</div>
-  }
+  getBody = () => this.state.isOpen && <div><p>{this.props.article.text}</p>{this.getComment()}</div>
 
-  getComment = () => {
-    if (this.props.article.comments !== undefined) {
-      return <CommentList comments={this.props.article.comments}/>
-    }
-  }
+  getComment = () => this.props.article.comments && <CommentBuild comments={this.props.article.comments}/>
 
   toggleOpen = () => {
     this.setState({
