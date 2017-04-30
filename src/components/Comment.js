@@ -13,7 +13,7 @@ Comment.propTypes = {
   comment: PropTypes.shape({
     id: PropTypes.number,
     text: PropTypes.string,
-    use: PropTypes.string.isRequired
+    user: PropTypes.string.isRequired
   })
 }
 
