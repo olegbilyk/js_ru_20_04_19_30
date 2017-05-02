@@ -14,7 +14,6 @@ class ArticleList extends Component {
 
   render () {
     const {openAccordionId, toggleAccordion} = this.props
-    console.log(openAccordionId)
 
     const elements = this.props.articles.map(article => <li key={article.id}>
       <Article article={article}

@@ -15,14 +15,6 @@ class Article extends Component {
     toggleOpen: PropTypes.func
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
-    return nextProps.isOpen != this.props.isOpen
-  }
-
-  componentWillUpdate () {
-    console.log('---', 'updating')
-  }
-
   render () {
     const {article, toggleOpen} = this.props
 

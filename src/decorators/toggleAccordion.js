@@ -13,7 +13,7 @@ export default (OriginalComponent) => class DecorationComponent extends BasicCom
     ev && ev.preventDefault && ev.preventDefault()
 
     this.setState({
-      openAccordionId: id
+      openAccordionId: (this.state.openAccordionId !== id) ? id : null
     })
   }
 }
