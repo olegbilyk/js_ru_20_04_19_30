@@ -10,6 +10,7 @@ export default (OriginalComponent) => class DecoratedComponent extends BasicComp
     return <OriginalComponent {...this.props} {...this.state} toggleOpen={this.toggleOpen}/>
   }
 
+
   toggleOpen = ev => {
     ev && ev.preventDefault && ev.preventDefault()
 
