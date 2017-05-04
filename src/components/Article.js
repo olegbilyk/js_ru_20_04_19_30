@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CommnetList from './CommentList'
 import PropTypes from 'prop-types'
+import { deleteArticle } from '../AC/articles'
 
 class Article extends Component {
   static propTypes = {
@@ -23,9 +24,15 @@ class Article extends Component {
         <h2 onClick={toggleOpen}>
           {article.title}
         </h2>
+        <a href="#" onClick={this.handleDelete}>Delete Me</a>
         {this.getBody()}
       </section>
     )
+  }
+
+  handleDelete = (ev) => {
+    ev.preventDefault()
+    deleteArticle(this.props.article.id)
   }
 
   getBody () {
