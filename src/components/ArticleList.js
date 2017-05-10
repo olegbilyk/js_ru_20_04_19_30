@@ -8,6 +8,7 @@ class ArticleList extends Component {
     articles: PropTypes.array,
 
     // from toggleArticle decorator
+    //почему закоментил?
     // openArticleId: PropTypes.str,
     toggleAccordion: PropTypes.func
   }
