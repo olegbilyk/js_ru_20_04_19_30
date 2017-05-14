@@ -1,0 +1,19 @@
+form.comment-form {
+  & label {
+    display: block;
+  }
+
+  & * + label {
+    margin-top: 10px;
+  }
+
+  & input,
+  & textarea {
+    border: 1px solid #222;
+  }
+
+  & .on-error {
+    border-color: #ff0f1d;
+    outline: #ff0f1d;
+  }
+}
