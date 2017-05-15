@@ -1,6 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import DayPicker, { DateUtils } from 'react-day-picker'
+//нет, если нужны - передай через пропсы
 import {articles} from '../fixtures'
 
 import 'react-day-picker/lib/style.css'
