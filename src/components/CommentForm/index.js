@@ -21,6 +21,7 @@ class CommentForm extends Component {
     const valueLength = ev.target.value.length
     const targetClass = ev.target.classList
 
+    //Не лезь в DOM. Я же говорил, что этого стоит избегать, задача писать в декларативном стиле
     if (valueLength <= 5 || valueLength >= 20) {
       targetClass.add('on-error')
     } else if (targetClass.contains('on-error')) {
