@@ -8,6 +8,7 @@ class Filters extends Component {
         articles: PropTypes.array
     };
 
+
     render() {
         return (
             <div>

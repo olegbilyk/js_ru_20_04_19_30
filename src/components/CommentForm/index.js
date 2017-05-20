@@ -27,7 +27,7 @@ class CommentForm extends Component {
 
     handleSubmit = ev => {
         ev.preventDefault()
-        console.log('---', this.state)
+        // console.log('---', this.state)
         this.setState({
             user: '',
             comment: ''

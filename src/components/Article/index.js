@@ -28,7 +28,7 @@ class Article extends Component {
     }
 
     componentWillUpdate() {
-        console.log('---', 'updating')
+        // console.log('---', 'updating')
     }
 
     render() {
@@ -44,7 +44,7 @@ class Article extends Component {
                     transitionEnterTimeout = {500}
                     transitionLeaveTimeout = {300}
                 >
-                    {this.getBody()}
+                {this.getBody()}
                 </CSSTransitionGroup>
             </section>
         )
