@@ -5,7 +5,7 @@ import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 import Loader from '../Loader'
 import './style.css'
 import {connect} from 'react-redux'
-import {deleteArticle, loadArticle} from '../../AC/index'
+import {deleteArticle, loadArticle, loadComments} from '../../AC/index'
 
 class Article extends Component {
     static propTypes = {
@@ -19,18 +19,13 @@ class Article extends Component {
         toggleOpen: PropTypes.func
     }
 
+    componentDidMount() {
+        const {isCommentsLoaded, isCommentsLoading, loadComments, article } = this.props
+        if (!isCommentsLoading && !isCommentsLoaded) loadComments(article.id)
+    }
+
     componentWillReceiveProps({article, loadArticle, isOpen}) {
         if (isOpen && !this.props.isOpen) loadArticle(article.id)
-    }
-
-/*
-    componentWillMount() {
-        console.log('---', 'mounting')
-    }
-*/
-
-    componentWillUpdate() {
-        console.log('---', 'updating')
     }
 
     render() {
@@ -71,4 +66,7 @@ class Article extends Component {
     }
 }
 
-export default connect(null, { deleteArticle, loadArticle })(Article)
+export default connect((state) => ({
+    isCommentsLoaded: state.comments.loaded,
+    isCommentsLoading: state.comments.loading
+}), { deleteArticle, loadArticle, loadComments })(Article)

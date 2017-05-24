@@ -1,6 +1,6 @@
 import {DELETE_ARTICLE, ADD_COMMENT, LOAD_ALL_ARTICLES, LOAD_ARTICLE, START, SUCCESS} from '../constants'
-import {arrayToMap} from '../utils'
-import {Map, OrderedMap, Record} from 'immutable'
+import {arrayToMap, DefaultReducerState} from '../utils'
+import {Record} from 'immutable'
 
 const ArticleModel = Record({
     id: null,
@@ -11,17 +11,11 @@ const ArticleModel = Record({
     loading: false
 })
 
-const DefaultReducerState = Record({
-    entities: new OrderedMap({}),
-    loading: false,
-    loaded: false
-})
-
 export default (articles = new DefaultReducerState(), action) => {
     const {type, payload, response, randomId} = action
     switch (type) {
         case DELETE_ARTICLE:
-            return articles.deleteId(['entities', payload.id])
+            return articles.deleteIn(['entities', payload.id])
 
         case ADD_COMMENT:
             return articles.updateIn(

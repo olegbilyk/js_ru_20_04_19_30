@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Comment from './Comment'
 import CommentForm from './CommentForm/index'
+// import Loader from 'Loader'
 import toggleOpen from '../decorators/toggleOpen'
 import PropTypes from 'prop-types'
 
