@@ -14,6 +14,8 @@ export default (comments = new DefaultReducerState(), action) => {
         case ADD_COMMENT:
             return comments.setIn(['entities', randomId], new CommentModel({...payload.comment, id: randomId}))
 
+        //ты используешь comments.loaded и .loading, но не меняешь их + 
+        //здесь так просто уже не выйдет, ведь ты загружаешь не все комменты сразу, а отдельно для каждой статьи
         case LOAD_COMMENTS + SUCCESS:
             return comments.mergeIn(['entities'], arrayToMap(response, CommentModel))
     }
